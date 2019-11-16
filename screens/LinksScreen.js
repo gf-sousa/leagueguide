@@ -1,27 +1,17 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { Text, SafeAreaView, Platform, StatusBar, ImageBackground, } from 'react-native';
+import background from '../assets/images/bg_img.png';
 
 export default function LinksScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <ImageBackground source={background} style={ {width:'100%', height:'100%'} }>
+    <SafeAreaView style= { { flex: 1, paddingTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0 }}>
+    <Text></Text>
+    </SafeAreaView>
+    </ImageBackground>
   );
 }
 
 LinksScreen.navigationOptions = {
-  title: 'Links',
+  header: null,
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
