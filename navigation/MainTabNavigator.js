@@ -3,23 +3,20 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import AboutScreen from '../screens/AboutScreen';
+import StarterScreen from '../screens/StarterScreen';
+import GlossarioScreen from '../screens/GlossarioScreen';
 
-const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
-});
+const config = Platform.select({});
 
-const HomeStack = createStackNavigator(
+const AboutStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    About: AboutScreen,
   },
   config
 );
 
-HomeStack.navigationOptions = {
+AboutStack.navigationOptions = {
   tabBarLabel: 'About',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -33,51 +30,63 @@ HomeStack.navigationOptions = {
   ),
 };
 
-HomeStack.path = '';
+AboutStack.path = '';
 
-const LinksStack = createStackNavigator(
+const StarterStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Starter: StarterScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
+StarterStack.navigationOptions = {
   tabBarLabel: 'Starter',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-play' : 'md-play'} />
   ),
 };
 
-LinksStack.path = '';
+StarterStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const GlossarioStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Glossario: GlossarioScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
+GlossarioStack.navigationOptions = {
   tabBarLabel: 'Glossário',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-journal' : 'md-journal'} />
   ),
 };
 
-SettingsStack.path = '';
+GlossarioStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  GlossarioStack,
+  StarterStack,
+  AboutStack,
 },{
+  initialRouteName: 'AboutStack',
+  swipeEnabled: true,
+  lazyLoad: true,
   tabBarOptions: {
-    activeBackgroundColor: 'white',
-    inactiveBackgroundColor: 'white',
-    tabStyle: { backgroundColor: 'white'},
+      tinColor: '#fff',
+      activeTintColor: '#eee',
+      inactiveTintColor: '#fff',
+      showIcon: true,
+      showLabel: true,
+      lazyLoad: true,
+      upperCaseLabel: false,
+      indicatorStyle: {
+      backgroundColor: '#432751',
+      },
     style: {
-      backgroundColor: 'white'
+      backgroundColor: 'rgb(26, 0, 39)',
+      borderTopWidth: 3,
+      position: 'relative',
     }
   }
 }
