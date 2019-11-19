@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, SafeAreaView, Platform, StatusBar, ImageBackground, Image} from 'react-native';
 import background from '../assets/images/bg_img.png';
-import imageteste from '../assets/images/imgtst.jpg';
+import imageteste from '../assets/images/gif-combo.gif';
 
 export default function StarterScreen() {
   return (
