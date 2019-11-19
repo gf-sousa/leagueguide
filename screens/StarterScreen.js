@@ -6,11 +6,11 @@ import imageteste from '../assets/images/gif-combo.gif';
 export default function StarterScreen() {
   return (
     <ImageBackground source={background} style={ {width:'100%', height:'100%'} }>
-    <SafeAreaView style= { { flex: 1, paddingTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0 }}>
-    <View style={{flex:1}}>
-    <Image source={imageteste} style={{width: 300, height: 200, alignSelf: 'center', marginVertical: 20, marginHorizontal: 10}}/>
-    </View>
-    </SafeAreaView>
+      <SafeAreaView style= { { flex: 1, paddingTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0 }}>
+        <View style={{flex:1}}>
+        <Image source={imageteste} style={{width: 300, height: 200, alignSelf: 'center', marginVertical: 20, marginHorizontal: 10}}/>
+        </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
