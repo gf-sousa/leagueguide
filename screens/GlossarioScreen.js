@@ -28,8 +28,7 @@ export default function GlossarioScreen() {
         <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Entregar alguma coisa no jogo, exemplo tem 2 jogadores do time inimigo mortos e vcs startam barão, é melhor eles givar do que ir lá e morrer</Text>
 
         <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Harass: </Text>
-        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> É quando alguém fica incomodando um personagem adversário, causando dano nele sempre que possível para deixá-lo desconfortável. Pode ser corporal ou à distância, o importante é ficar fazendo o adversário perder vida sempre que
-        possível, seja com auto ataque ou com habilidades. A ideia é tentar fazer o adversário sair da lane ou se sentir intimidado na hora de ir farmar ou destruir alguma coisa.</Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Colocar pressão sobre um campeão inimigo, causando danos com pouco risco de retaliação.</Text>
         
         <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}>
                        Chase: </Text>
@@ -37,6 +36,73 @@ export default function GlossarioScreen() {
         
         <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}>All win: </Text>
         <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}>Significa você investir com tudo contra seu adversário na lane. Basicamente, gastar tudo que você tem pra garantir kill.</Text>
+        
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Trade </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Quando jogadores de cada lado possui dano equivalente a outro durante um confronto. </Text>
+        
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Cover </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Convidar outro companheiro de equipe para segurar a lane do jogador enquanto ele não estão lá. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Zoning </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> criar zonas com habilidades, de modo que seu inimigo irá chegar em um local/situação desfavorável </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Poke </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Uma forma de atacar que utiliza ataques de longa distância para causar dano pequeno ou moderado, a fim de enfraquecer um inimigo, mantendo uma posição segura. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> CC </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> “Crowd Control” ou controle de multidão, são algumas habilidades que os campeões possuem para desferir lentidões e atordoamentos. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Wave </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Um grupo de minions que nascem ao mesmo tempo. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Gank </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Emboscar um ou mais inimigos desavisados com um ou mais campeões (geralmente com o jungler aliado). </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Counter Jungle </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Para neutralizar no lado inimigo da selva, privando a equipe inimiga de buffs, ouro e experiência. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Counter pick </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Escolher um campeão durante a seleção para neutralizar uma habilidade de outro campeão inimigo em especial </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Counter gank </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Configurando uma emboscada em resposta imediata a uma emboscada inimiga com a intenção de negar ou frustrar a vantagem obtida pelo ataque do inimigo. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> River </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> A cruzada de aguas no centro das lanes em Summoner’s Rift. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Swap </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Altere as linhas, por exemplo, o topo vai para o bot e os dois do bot vão para a linha superior. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Red </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Time Vermelho ou monstro da selva denominado “Azuporã” que dá o buff “red” de regeneração de vida. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Blue </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Time Azul ou monstro da selva denominado “Azuporã” que dá o buff “blue” de regeneração de mana. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> B </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> A área murada onde a loja, Respawn, Nexus e Inibidores estão situados. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Dive </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Perseguir um alvo específico em uma área altamente perigosa, tipicamente abaixo de uma torre inimiga. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Freeze </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Freezar a lane é uma técnica muito avançada é muito eficiente. Se você fizer isso direito, você pode efetivamente negar todos os avanços para o seu adversário, enquanto consegue aquisição livre de pontuação/influência sem ameaça. </Text>
+
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> Push </Text>
+        <Text style={{ flex: 1, color: 'white', textAlign: 'justify', marginHorizontal: 5}}> O termo "push" é frequentemente utilizado para se referir a "avançar a lane" </Text>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         </View>
       </SafeAreaView>
          </ImageBackground>
