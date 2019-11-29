@@ -14,7 +14,11 @@ export default function GlossarioScreen() {
           <View style={styles.container, {flex: 1, alignSelf: 'center'}}>
           <FlatList
                 data={[
-                  { key: ' - Rotas: TOP = rota superior JG/Jungle = caçador, rota da selva MID = rota do meio BOT/ADC = rota inferior, carregador de dano físico, atirador SUP = Suporte, rota inferior;'},
+                  { key: ' - TOP = rota superior'},
+                  { key: ' - JG/Jungle = caçador, rota da selva'},
+                  { key: ' - MID = rota do meio '},
+                  { key: ' - BOT/ADC = rota inferior, carregador de dano físico, atirador'},
+                  { key: ' - SUP = Suporte, rota inferior;'},
                   { key: ' - Invade: ir em um território inimigo, particularmente a jungle;'},
                   { key: ' - Trade: Trade Damage: quando jogadores de cada lado possui dano equivalente a outro durante um confronto.;' },
                   { key: ' - Cover: Convidar outro companheiro de equipe para te proteger;' },
@@ -59,8 +63,6 @@ const styles = StyleSheet.create({
 
   },
 });
-
-
 GlossarioScreen.navigationOptions = {
   header: null,
 };
