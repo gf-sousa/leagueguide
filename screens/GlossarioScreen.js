@@ -1,68 +1,92 @@
-import React from 'react';
-import { View, Text, Platform, StatusBar, SafeAreaView, ImageBackground, Image, StyleSheet, FlatList} from 'react-native';
-import background from '../assets/images/bg_img.png';
-import imga from '../assets/images/rotas.jpg';
-import imgb from '../assets/images/invade.png';
+import React from "react";
+import {
+  View,
+  Text,
+  Platform,
+  StatusBar,
+  SafeAreaView,
+  ImageBackground,
+  StyleSheet,
+  ScrollView
+} from "react-native";
+import background from "../components/Background";
+import { Table, Row, Rows } from "react-native-table-component";
 
-export default function GlossarioScreen() {
-  return(
-    <ImageBackground source={background} style={ {width:'100%', height:'100%'} }>
-      <SafeAreaView style= { { flex: 1, paddingTop: Platform.OS == 'android' ? StatusBar.currentHeight : 0 }}>
-       <View style={{flex:1}}>
-        <Text style={{color:'white'}}>Glossario</Text>
-         <Image source={imga} style={{ width: 300, height: 200, alignSelf: 'center', marginVertical: 20, marginHorizontal: 10}}/>
-          <View style={styles.container, {flex: 1, alignSelf: 'center'}}>
-          <FlatList
-                data={[
-                  { key: ' - TOP = rota superior'},
-                  { key: ' - JG/Jungle = caçador, rota da selva'},
-                  { key: ' - MID = rota do meio '},
-                  { key: ' - BOT/ADC = rota inferior, carregador de dano físico, atirador'},
-                  { key: ' - SUP = Suporte, rota inferior;'},
-                  { key: ' - Invade: ir em um território inimigo, particularmente a jungle;'},
-                  { key: ' - Trade: Trade Damage: quando jogadores de cada lado possui dano equivalente a outro durante um confronto.;' },
-                  { key: ' - Cover: Convidar outro companheiro de equipe para te proteger;' },
-                  { key: ' - Harass: Colocar pressão sobre um campeão inimigo, causando danos com pouco risco de retaliação;' },
-                  { key: ' - Zoning: criar zonas com habilidades, de modo que seu inimigo irá chegar em um local/situação desfavorável;' },
-                  { key: ' - Poke: Uma forma de atacar que utiliza ataques de longa distância para causar dano pequeno ou moderado, a fim de enfraquecer um inimigo, mantendo uma posição segura;'},
-                  { key: ' - CC: “Crowd Control” ou controle de multidão, são algumas habilidades que os campeões possuem para desferir lentidões e atordoamentos;'}, 
-                  { key: ' - Chase: Perseguição - Ficar indo de um alvo pra matar ele.;'},
-                  { key: ' - Wave: Um grupo de minions que nascem ao mesmo tempo.;'},
-                  { key: ' - Gank: Emboscar um ou mais inimigos desavisados com um ou mais campeões (geralmente com o jungler aliado);'},
-                  { key: ' - Counte Jungle: Para neutralizar no lado inimigo da selva, privando a equipe inimiga de buffs, ouro e experiência;'},
-                  { key: ' - Counter pick: Escolher um campeão durante a seleção para neutralizar uma habilidade de outro campeão inimigo em especial;'},
-                  { key: ' - Counter gank: Configurando uma emboscada em resposta imediata a uma emboscada inimiga com a intenção de negar ou frustrar a vantagem obtida pelo ataque do inimigo.;'},
-                  { key: ' - River: A cruzada de aguas no centro das lanes em Summoner’s Rift;'},
-                  { key: ' - Swap: Altere as linhas, por exemplo, o topo vai para o bot e os dois do bot vão para a linha superior;'},
-                  { key: ' - Red: Termo utilizado para citar o bônus que o Rubrivira (monstro neutro da selva) disponibiliza ao ser feito;'},
-                  { key: ' - Blue: Time Azul ou monstro da selva denominado “Azuporã” que dá o buff “blue” de regeneração de mana;'},
-                  { key: ' - B: A área murada onde a loja, Respawn, Nexus e Inibidores estão situados;'},
-                  { key: ' - dive: Perseguir um alvo específico em uma área altamente perigosa, tipicamente abaixo de uma torre inimiga;'},
-                  { key: ' - Freeze: Freezar a lane é uma técnica muito avançada é muito eficiente.;'},
-                  { key: ' - Push: O termo "push" é frequentemente utilizado para se referir a "avançar a lane";'},
-                  { key: ' - All win: Significa você investir com tudo contra seu adversário na lane. Basicamente, gastar tudo que você tem pra garantir kill.;'},
-                  ]}
-                  renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+export default class GlossarioScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tableHead: ["Termo", "Significado"],
+      tableData: [
+        [
+          "Role",
+          "Termo utilizado para se referir a rota que você está jogando. Por exemplo, minha role é mid."
+        ],
+        ["Top", "Nos referimos a rota do topo"],
+        ["Jungle", "Nos referimos a selva."],
+        ["Mid", "Nos referimos a rota do meio."],
+        ["Bot / Adc", "Nos referimos a rota inferior, e a role de atirador."],
+        ["Sup", "Nos referimos a rota inferior, e a role de suporte."],
+        ["Invade", "É uma ação que um jogador faz, no caso, de entrar na selva inimiga."],
+        ["Wave", "Nos refirimos a onda de tropas."],
+        ["Push", "É uma ação que um jogador faz, no caso, de empurrar a wave. Essa ação faz com que as tropas avancem mais rápido."],
+        ["Gank", "É uma ação que um jogador faz, no caso, ele ajuda um companheiro de equipe fazendo uma emboscada para abater o inimigo."],
+        ["Swap", "É uma ação que a equipe faz, no caso, eles invertem a rota que estão"],
+        ["Dive", "É uma ação que a equipe faz, no caso, eles 'mergulham' para abater os inimigos de baixo da torre."],
+        ["Harass", "É uma ação que um jogador faz, no caso, ele irá causar um dano explosivo no inimigo, com a intenção de reduzir sua barra de vida."],
+        ["Tracking", "Se trata de você reconhecer o posicionamento do inimigo na Névoa de Guerra."],
+        ["Névoa de Guerra", "É um detalhe do mapa que impede de você enxergar, a não ser que você ou algum aliado esteja para dar visão, ou uma ward, ou uma torre."],
+        ["Ward", "Ward é o termo para se referir a totem de sentinela. Ela dá visão para sua equipe em uma determinada área na Fog."],
+        ["Fog", "Termo para se referir a Névoa de Guerra."],
+        ["Pink", "É uma sentinela de controle que pode ser comprada por 75 de ouro, e ela controla uma área revelando totens de sentinelas inimigas e bloqueando elas."],
+        ["Pathing", "É você ter reconhecimento do caminho que o oponente fez."],
+        ["Shadow", "É o ato de um jogador dar cover na fog enquanto um aliado está fazendo Split. "],
+        ["Cover", "É uma ação de um jogador dar cobertura para um aliado na rota, objetivo ou split."],
+        ["Freeze", "É a ação de manipular a wave de maneira que as tropas fiquem se enfrntando em um ponto especifico da rota."],
+        ["Trade", "É uma decisão em equipe de abandonar um objetivo para pegar outro. Este termo também é utilizado para se referir a uma troca de dano entre dois jogadores."],
+        ["All win", "Um termo importado do poker, se trata de usar todos os recursos disponíveis para abater o oponente."],
+        ["Poke", "É a ação de causar pouco de dano no inimigo ao decorrer do tempo com suas habilidades."],
+        ["Split", "É a ação de um jogador empurrar uma rota lateral para danificar uma torre."]
+      ]
+    };
+  }
+  render() {
+    const state = this.state;
+    return (
+      <ImageBackground
+        source={background}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <SafeAreaView
+          style={{
+            flex: 1,
+            paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0
+          }}
+        >
+          <ScrollView style={styles.scrollView}>
+            <View>
+              <Table borderStyle={{ borderWidth: 2, borderColor: "#c8e1ff" }}>
+                <Row
+                  data={state.tableHead}
+                  style={styles.head}
+                  textStyle={styles.text}
                 />
-              </View>
-          </View>
-      </SafeAreaView>
-    </ImageBackground>
-  );
+                <Rows data={state.tableData} textStyle={styles.text} />
+              </Table>
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </ImageBackground>
+    );
+  }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 22,
-  },
-  item: {
-    fontSize: 14,
-    height: 44,
-    color: 'white',
-    textAlign: 'center',
-
-  },
-});
 GlossarioScreen.navigationOptions = {
-  header: null,
+  header: null
 };
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 12, paddingTop: 2, width: 120 },
+  head: { height: 40, backgroundColor: "#7852ff" },
+  text: { textAlign: 'justify', margin: 6, color: '#fff', fontSize: 14, alignSelf: "center" },
+  scrollView: { marginHorizontal: 20 }
+});

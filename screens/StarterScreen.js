@@ -1,8 +1,6 @@
 import React from 'react';
 import { Text, View, SafeAreaView, Platform, StatusBar, ImageBackground, Image, StyleSheet, FlatList} from 'react-native';
-import background from '../assets/images/bg_img.png';
-// import { Video } from 'expo-av';
-// import VideoPlayer from 'expo-video-player';
+import background from'../components/Background';
 import imageteste from '../assets/images/gif-combo.gif';
 
 export default function StarterScreen() {
