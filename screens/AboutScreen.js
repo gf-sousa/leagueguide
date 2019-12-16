@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import background from "../components/Background";
 import logo from "../assets/images/logo.png";
-import { Table, Row, Rows } from 'react-native-table-component';
 
 export default function AboutScreen() {
   return (

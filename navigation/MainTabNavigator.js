@@ -14,7 +14,7 @@ const config = Platform.select({});
 
 const AboutStack = createStackNavigator(
   {
-    About: AboutScreen
+    Sobre: AboutScreen
   },
   config
 );
