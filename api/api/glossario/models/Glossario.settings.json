@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "glossario",
+  "info": {
+    "name": "glossario",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "termo": {
+      "required": true,
+      "type": "string"
+    },
+    "significado": {
+      "required": true,
+      "type": "string"
+    }
+  }
+}
