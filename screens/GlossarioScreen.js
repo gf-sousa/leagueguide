@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import background from "../components/Background";
 import { Table, Row, Rows } from "react-native-table-component";
+import Anchor from '../components/LinkAnchor'
 
 export default class GlossarioScreen extends React.Component {
   constructor(props) {
@@ -100,7 +101,7 @@ export default class GlossarioScreen extends React.Component {
         ]
       ]
     };
-  }
+  };
   render() {
     const state = this.state;
     return (
@@ -125,12 +126,7 @@ export default class GlossarioScreen extends React.Component {
                 <Rows data={state.tableData} textStyle={styles.text} />
               </Table>
             </View>
-
-            <View>
-              <Text style={{ color: "white" }}>
-                Conhece um termo que está faltando?
-              </Text>
-            </View>
+            <Anchor href="http://ifms.edu.br/">Conhece algum termo que está faltando? Entre em contato conosco!</Anchor>
           </ScrollView>
         </SafeAreaView>
       </ImageBackground>
@@ -140,6 +136,10 @@ export default class GlossarioScreen extends React.Component {
 GlossarioScreen.navigationOptions = {
   header: null
 };
+
+
+
+
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 12, paddingTop: 2, width: 120 },
