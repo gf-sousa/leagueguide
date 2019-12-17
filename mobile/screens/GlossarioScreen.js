@@ -10,9 +10,9 @@ import {
   ScrollView,
   FlatList
 } from "react-native";
+import { DataTable } from "react-native-paper";
 import background from "../components/Background";
-import Table from '../components/GlossaryTable';
-import Anchor from '../components/LinkAnchor'
+import Anchor from "../components/LinkAnchor";
 
 export default class GlossarioScreen extends React.Component {
   constructor(props) {
@@ -20,22 +20,23 @@ export default class GlossarioScreen extends React.Component {
     this.state = {
       isLoading: true,
       dataSource: null
-    }
-  };
+    };
+  }
 
-  componentDidMount(){
-
-    return fetch('http://localhost:1337/')
-    .then( (response)=> response.json())
-    .then( (responseJson) => {
-      this.setState({
-        isLoading: false,
-        dataSource: responseJson.glossarios
-      })
-    })
-    .catch((error) => {
-      console.log(`O erro foi: ${error}`)
-    });
+  componentDidMount() {
+    return fetch("http://10.11.33.125:1337/glossarios")
+      .then(response =>
+        response.json().then(responseJson => {
+          console.log(responseJson);
+          this.setState({
+            isLoading: false,
+            dataSource: responseJson
+          });
+        })
+      )
+      .catch(error => {
+        console.log(`O erro foi: ${error}`);
+      });
   }
 
   render() {
@@ -53,17 +54,25 @@ export default class GlossarioScreen extends React.Component {
         >
           <ScrollView style={styles.scrollView}>
             <View>
-            <FlatList
-              data={this.state.data}
-              renderItem={({item}) => (
-                <View>
-                  <Text>{item.termo}/</Text>
-              <Text>{item.significado}</Text>
-                </View>
-              )}
-            />
+              <DataTable>
+                <DataTable.Header>
+                  <DataTable.Title>Teste</DataTable.Title>
+                  <DataTable.Title>Teste 2</DataTable.Title>
+                  <DataTable.Title>Teste 3</DataTable.Title>
+                </DataTable.Header>
+
+                <DataTable.Row>
+                  <DataTable.Cell>ABC</DataTable.Cell>
+                  <DataTable.Cell>123</DataTable.Cell>
+                  <DataTable.Cell>DEF</DataTable.Cell>
+                  <DataTable.Cell>456</DataTable.Cell>
+                </DataTable.Row>
+
+              </DataTable>
             </View>
-            <Anchor href="http://ifms.edu.br/">Conhece algum termo que está faltando? Entre em contato conosco!</Anchor>
+            {/* <Anchor href="http://ifms.edu.br/">
+              Conhece algum termo que está faltando? Entre em contato conosco!
+            </Anchor> */}
           </ScrollView>
         </SafeAreaView>
       </ImageBackground>
@@ -73,10 +82,6 @@ export default class GlossarioScreen extends React.Component {
 GlossarioScreen.navigationOptions = {
   header: null
 };
-
-
-
-
 
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 12, paddingTop: 2, width: 120 },
