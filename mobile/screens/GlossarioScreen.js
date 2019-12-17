@@ -8,9 +8,7 @@ import {
   ImageBackground,
   StyleSheet,
   ScrollView,
-  FlatList
 } from "react-native";
-import { DataTable } from "react-native-paper";
 import background from "../components/Background";
 import Anchor from "../components/LinkAnchor";
 
@@ -53,29 +51,27 @@ export default class GlossarioScreen extends React.Component {
           }}
         >
           {!this.state.isLoading ? (
-            <ScrollView style={styles.scrollView}>
-              <View style={{ backgroundColor: "#f0f0f0", borderWidth: 2 }}>
-                <DataTable style={{}}>
-                  <DataTable.Header>
-                    <DataTable.Title>Termo</DataTable.Title>
-                    <DataTable.Title>Significados</DataTable.Title>
-                  </DataTable.Header>
-                  {this.state.dataSource.map(row => {
-                    return (
-                      <DataTable.Row key={row.id}>
-                        <DataTable.Cell>{row.termo}</DataTable.Cell>
-                        <DataTable.Cell>{row.significado}</DataTable.Cell>
-                      </DataTable.Row>
-                    );
-                  })}
-                </DataTable>
+            <ScrollView style={{ flex: 1, marginHorizontal: 20 }}>
+              <View style={styles.table}>
+                <View style={styles.headerTable}>
+                  <Text style={styles.textHeader}>Termo</Text>
+                  <Text style={styles.textHeader}>Significado</Text>
+                </View>
+                {this.state.dataSource.map(row => {
+                  return (
+                    <View style={styles.rowTable} key={row.id}>
+                      <Text style={styles.textRow}>{row.termo}</Text>
+                      <Text style={styles.textRow}>{row.significado}</Text>
+                    </View>
+                  );
+                })}
               </View>
-              {/* <Anchor href="http://ifms.edu.br/">
-                Conhece algum termo que está faltando? Entre em contato conosco!
-              </Anchor> */}
+              <View style={{flex: 1, marginBottom: 5}}>
+                <Anchor href="http://ifms.edu.br">Clique aqui para entrar em contato!</Anchor>
+              </View>
             </ScrollView>
           ) : (
-            <Text>Carregando</Text>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}><Text style={{color: '#fff', fontSize: 21, fontWeight: 'bold', }}>Carregando o Glossário!</Text></View>
           )}
         </SafeAreaView>
       </ImageBackground>
@@ -96,5 +92,41 @@ const styles = StyleSheet.create({
     fontSize: 14,
     alignSelf: "center"
   },
-  scrollView: { marginHorizontal: 20 }
+  scrollView: { marginHorizontal: 20 },
+  table: {
+    flex: 1,
+    borderWidth: 2,
+    borderColor: "#f0f0f0",
+    borderStyle: "solid",
+    marginVertical: 30
+  },
+  headerTable: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  rowTable: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  textHeader: {
+    color: '#f0f0f0',
+    flex: 1,
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 5,
+    borderWidth: 0.7,
+    borderColor: "#f0f0f0",
+    borderStyle: "solid",
+    backgroundColor: '#7852ff',
+    textAlign: 'center'
+  },
+  textRow: {
+    color: '#f1f1f1',
+    flex: 1,
+    padding: 5,
+    borderWidth: 0.7,
+    borderColor: "#f0f0f0",
+    borderStyle: "solid",
+    textAlign: "center",
+  }
 });
