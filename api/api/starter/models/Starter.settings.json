@@ -1,0 +1,35 @@
+{
+  "connection": "default",
+  "collectionName": "starter",
+  "info": {
+    "name": "starter",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "titulo": {
+      "required": true,
+      "type": "string"
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "desc": {
+      "required": true,
+      "type": "string"
+    },
+    "categoria": {
+      "model": "categoria",
+      "via": "starters"
+    }
+  }
+}
