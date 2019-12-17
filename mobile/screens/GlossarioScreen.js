@@ -52,28 +52,31 @@ export default class GlossarioScreen extends React.Component {
             paddingTop: Platform.OS == "android" ? StatusBar.currentHeight : 0
           }}
         >
-          <ScrollView style={styles.scrollView}>
-            <View>
-              <DataTable>
-                <DataTable.Header>
-                  <DataTable.Title>Teste</DataTable.Title>
-                  <DataTable.Title>Teste 2</DataTable.Title>
-                  <DataTable.Title>Teste 3</DataTable.Title>
-                </DataTable.Header>
-
-                <DataTable.Row>
-                  <DataTable.Cell>ABC</DataTable.Cell>
-                  <DataTable.Cell>123</DataTable.Cell>
-                  <DataTable.Cell>DEF</DataTable.Cell>
-                  <DataTable.Cell>456</DataTable.Cell>
-                </DataTable.Row>
-
-              </DataTable>
-            </View>
-            {/* <Anchor href="http://ifms.edu.br/">
-              Conhece algum termo que está faltando? Entre em contato conosco!
-            </Anchor> */}
-          </ScrollView>
+          {!this.state.isLoading ? (
+            <ScrollView style={styles.scrollView}>
+              <View style={{ backgroundColor: "#f0f0f0", borderWidth: 2 }}>
+                <DataTable style={{}}>
+                  <DataTable.Header>
+                    <DataTable.Title>Termo</DataTable.Title>
+                    <DataTable.Title>Significados</DataTable.Title>
+                  </DataTable.Header>
+                  {this.state.dataSource.map(row => {
+                    return (
+                      <DataTable.Row key={row.id}>
+                        <DataTable.Cell>{row.termo}</DataTable.Cell>
+                        <DataTable.Cell>{row.significado}</DataTable.Cell>
+                      </DataTable.Row>
+                    );
+                  })}
+                </DataTable>
+              </View>
+              {/* <Anchor href="http://ifms.edu.br/">
+                Conhece algum termo que está faltando? Entre em contato conosco!
+              </Anchor> */}
+            </ScrollView>
+          ) : (
+            <Text>Carregando</Text>
+          )}
         </SafeAreaView>
       </ImageBackground>
     );
