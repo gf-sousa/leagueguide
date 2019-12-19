@@ -81,7 +81,7 @@ export default class StarterScreen extends React.Component {
               <Button title="Adicionar!" color="#83d6ab" onPress={this.addTip} />
               <View>
                 <Text style={{color: 'white', fontSize: 21}}>Suas anotações:</Text>
-              <View style={{ alignItems: "stretch", justifyContent: "center" }}>{this.renderTip()}</View>
+              <View>{this.renderTip()}</View>
               </View>
             </View>
           </View>
@@ -98,16 +98,15 @@ StarterScreen.navigationOptions = {
 const styles = {
   wholeStyle: {
     flex: 1,
+    flexDirection: 'column'
   },
   viewStyle: {
     alignItems: "center",
     justifyContent: "center",
-    marginVertical: 3
   },
   inputStyle: {
     borderColor: "#f0f0f0",
     borderWidth: 2,
-    
     width: 100,
     color: 'white',
     justifyContent: 'center'

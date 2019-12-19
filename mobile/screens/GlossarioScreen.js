@@ -22,7 +22,7 @@ export default class GlossarioScreen extends React.Component {
   }
 
   componentDidMount() {
-    return fetch("http://10.11.33.125:1337/glossarios")
+    return fetch("http://10.11.33.44:1337/glossarios")
       .then(response =>
         response.json().then(responseJson => {
           console.log(responseJson);
